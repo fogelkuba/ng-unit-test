@@ -1,5 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {UserService} from "./user.service";
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,4 +25,10 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to test-project!');
   }));
+
+  it('should have user', async(() => {
+   const fixture = TestBed.createComponent(AppComponent);
+   let app = fixture.debugElement.componentInstance;
+   let userService = fixture.debugElement.injector.get(UserService);
+  }))
 });
