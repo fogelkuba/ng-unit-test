@@ -26,9 +26,11 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to test-project!');
   }));
 
-  it('should have user', async(() => {
+  it('should have user', () => {
    const fixture = TestBed.createComponent(AppComponent);
    let app = fixture.debugElement.componentInstance;
    let userService = fixture.debugElement.injector.get(UserService);
-  }))
+   fixture.detectChanges();
+   expect(userService.user.name).toEqual(app.user.name)
+  })
 });
